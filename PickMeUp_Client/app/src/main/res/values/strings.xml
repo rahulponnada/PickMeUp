@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PickMeUp</string>
+    <string name="student_home">Welcome To Student Home Page</string>
+    <string name="volunteer_home">Welcome To Volunteer Home Page</string>
+    <string name="username">username</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_student_reg">PickMeUp</string>
+    <string name="title_activity_student_home">PickMeUp</string>
+    <string name="title_activity_main">PickMeUp</string>
+    <string name="title_activity_volunteer_home">PickMeUp</string>
+    <string name="title_activity_volunteer_reg">PickMeUp</string>
+    <string-array name="airlines_array">
+        <item>Sprint</item>
+        <item>British</item>
+        <item>Jet</item>
+        <item>Ethihad</item>
+        <item>AirIndia</item>
+    </string-array>
+</resources>

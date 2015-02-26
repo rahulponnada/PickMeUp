@@ -1,0 +1,6 @@
+c:\users\bhargavi\documents\visual studio 2013\Projects\TestWS\TestWS\bin\Debug\TestWS.dll
+c:\users\bhargavi\documents\visual studio 2013\Projects\TestWS\TestWS\bin\Debug\TestWS.pdb
+c:\users\bhargavi\documents\visual studio 2013\Projects\TestWS\TestWS\bin\Debug\nunit.framework.dll
+c:\users\bhargavi\documents\visual studio 2013\Projects\TestWS\TestWS\bin\Debug\nunit.framework.xml
+c:\users\bhargavi\documents\visual studio 2013\Projects\TestWS\TestWS\obj\Debug\TestWS.dll
+c:\users\bhargavi\documents\visual studio 2013\Projects\TestWS\TestWS\obj\Debug\TestWS.pdb

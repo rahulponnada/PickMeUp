@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\bhargavi\Documents\Visual Studio 2013\Projects\TestWS\TestWS\bin\Debug\TestWS.dll" total="4" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-02-25" time="17:31:13">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="BHAGI" user="bhargavi" user-domain="BHAGI" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\bhargavi\Documents\Visual Studio 2013\Projects\TestWS\TestWS\bin\Debug\TestWS.dll" executed="True" result="Success" success="True" time="0.597" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="TestWS" executed="True" result="Success" success="True" time="0.573" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="Service" executed="True" result="Success" success="True" time="0.568" asserts="0">
+            <results>
+              <test-case name="TestWS.Service.testLoginStudent" executed="True" result="Success" success="True" time="0.525" asserts="1" />
+              <test-case name="TestWS.Service.testLoginVolunteer" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+              <test-case name="TestWS.Service.testRegistrationStudent" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+              <test-case name="TestWS.Service.testRegistrationVolunteer" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

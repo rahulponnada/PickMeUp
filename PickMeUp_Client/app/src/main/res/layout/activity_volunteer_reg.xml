@@ -1,0 +1,306 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.umkc.pickmeup.VolunteerRegActivity"
+    android:id="@+id/regRelLayout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="StudentID: "
+        android:id="@+id/volStudentIDLabel"
+        android:layout_alignBottom="@+id/volStudentIDField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/volStudentIDField"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/volPasswordField"
+        android:layout_alignStart="@+id/volPasswordField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Password: "
+        android:id="@+id/volPasswordLabel"
+        android:layout_alignBottom="@+id/volPasswordField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/volPasswordField"
+        android:layout_below="@+id/volStudentIDField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/volFirstNameLabel"
+        android:layout_toEndOf="@+id/volFirstNameLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="First Name: "
+        android:id="@+id/volFirstNameLabel"
+        android:layout_alignBottom="@+id/volFirstNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volFirstNameField"
+        android:layout_below="@+id/volPasswordField"
+        android:layout_toRightOf="@+id/volFirstNameLabel"
+        android:layout_alignRight="@+id/volPasswordField"
+        android:layout_alignEnd="@+id/volPasswordField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Last Name: "
+        android:id="@+id/volLastNameLabel"
+        android:layout_alignBottom="@+id/volLastNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volLastNameField"
+        android:layout_below="@+id/volFirstNameLabel"
+        android:layout_toRightOf="@+id/volLastNameLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Email ID: "
+        android:id="@+id/volEmailIDLabel"
+        android:layout_alignBottom="@+id/volEmailIDField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/volEmailIDField"
+        android:layout_below="@+id/volLastNameLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/volLastNameField"
+        android:layout_alignStart="@+id/volLastNameField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender: "
+        android:id="@+id/volGenderLabel"
+        android:layout_below="@+id/volEmailIDLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignBottom="@+id/volGenderLabel"
+        android:layout_toEndOf="@+id/volLastNameLabel"
+        android:layout_alignTop="@+id/volGenderLabel"
+        android:layout_toRightOf="@+id/volLastNameLabel"
+        android:orientation="horizontal"
+        android:id="@+id/volRadioGroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:id="@+id/volMaleRadioButton"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:id="@+id/volFemaleRadioButton"
+            android:layout_gravity="right"
+            android:checked="false"
+            android:layout_marginLeft="20dp" />
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Phone No:"
+        android:id="@+id/volPhoneNoLabel"
+        android:layout_alignBottom="@+id/volPhoneNumberField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/volPhoneNumberField"
+        android:layout_below="@+id/volRadioGroup"
+        android:layout_alignLeft="@+id/volRadioGroup"
+        android:layout_alignStart="@+id/volRadioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Address: "
+        android:id="@+id/volAddressLabel"
+        android:layout_alignBottom="@+id/VolAddressField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/VolAddressField"
+        android:layout_below="@+id/volPhoneNumberField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/volPhoneNumberField"
+        android:layout_alignStart="@+id/volPhoneNumberField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Available Days:"
+        android:id="@+id/volAvailableDaysLabel"
+        android:layout_below="@+id/volAddressLabel"
+        android:layout_toRightOf="@+id/volAddressLabel"
+        android:layout_toEndOf="@+id/volAddressLabel"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mon"
+        android:id="@+id/monCheckBox"
+        android:layout_below="@+id/volAvailableDaysLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:layout_marginLeft="10dp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tue"
+        android:id="@+id/tueCheckBox"
+        android:checked="false"
+        android:layout_toRightOf="@+id/monCheckBox"
+        android:layout_alignTop="@+id/monCheckBox"
+        android:layout_toLeftOf="@+id/satCheckBox"
+        android:layout_toStartOf="@+id/satCheckBox"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wed"
+        android:id="@+id/wedCheckBox"
+        android:checked="false"
+        android:layout_below="@+id/volAvailableDaysLabel"
+        android:layout_alignLeft="@+id/volPhoneNumberField"
+        android:layout_alignStart="@+id/volPhoneNumberField"
+        android:layout_marginLeft="10dp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thu"
+        android:id="@+id/ThuCheckBox"
+        android:checked="false"
+        android:layout_alignTop="@+id/wedCheckBox"
+        android:layout_toEndOf="@+id/wedCheckBox"
+        android:layout_toRightOf="@+id/wedCheckBox"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fri"
+        android:id="@+id/friCheckBox"
+        android:checked="false"
+        android:layout_below="@+id/volAvailableDaysLabel"
+        android:layout_toRightOf="@+id/volAvailableDaysLabel"
+        android:layout_toEndOf="@+id/volAvailableDaysLabel"
+        android:layout_above="@+id/sunCheckBox"
+        android:layout_marginLeft="10dp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sat"
+        android:id="@+id/satCheckBox"
+        android:checked="false"
+        android:layout_below="@+id/wedCheckBox"
+        android:layout_alignLeft="@+id/wedCheckBox"
+        android:layout_alignStart="@+id/wedCheckBox"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sun"
+        android:id="@+id/sunCheckBox"
+        android:checked="false"
+        android:layout_below="@+id/ThuCheckBox"
+        android:layout_alignLeft="@+id/ThuCheckBox"
+        android:layout_alignStart="@+id/ThuCheckBox"
+        android:onClick="onCheckboxClicked"/>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/volRegisterButton"
+        android:layout_below="@+id/sunCheckBox"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+</RelativeLayout>
+</ScrollView>

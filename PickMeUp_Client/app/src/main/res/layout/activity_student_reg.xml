@@ -1,0 +1,280 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.umkc.pickmeup.StudentRegActivity"
+    android:id="@+id/registerLayout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="StudentID: "
+        android:id="@+id/stdStudentIDLabel"
+        android:layout_alignBottom="@+id/stdStudentIDField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/stdStudentIDField"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/stdStudentIDLabel"
+        android:layout_toRightOf="@+id/stdStudentIDLabel"
+        android:layout_alignLeft="@+id/stdPasswordField"
+        android:layout_alignStart="@+id/stdPasswordField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Password: "
+        android:id="@+id/stdPasswordLabel"
+        android:layout_alignBottom="@+id/stdPasswordField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/stdPasswordField"
+        android:layout_below="@+id/stdStudentIDField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/stdPasswordLabel"
+        android:layout_toRightOf="@+id/stdPasswordLabel"
+        android:layout_alignLeft="@+id/stdTimeField"
+        android:layout_alignStart="@+id/stdTimeField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="First Name: "
+        android:id="@+id/stdFirstNameLabel"
+        android:layout_alignBottom="@+id/stdFirstNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdFirstNameField"
+        android:layout_below="@+id/stdPasswordField"
+        android:layout_alignRight="@+id/stdPasswordField"
+        android:layout_alignEnd="@+id/stdPasswordField"
+        android:layout_alignLeft="@+id/stdTimeField"
+        android:layout_alignStart="@+id/stdTimeField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Last Name: "
+        android:id="@+id/stdLastNameLabel"
+        android:layout_alignBottom="@+id/stdLastNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdLastNameField"
+        android:layout_below="@+id/stdFirstNameLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/stdFirstNameField"
+        android:layout_alignStart="@+id/stdFirstNameField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Email ID: "
+        android:id="@+id/stdEmailIDLabel"
+        android:layout_alignBottom="@+id/stdEmailIDField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/stdEmailIDField"
+        android:layout_below="@+id/stdLastNameLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/stdLastNameField"
+        android:layout_alignStart="@+id/stdLastNameField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender: "
+        android:id="@+id/stdGenderLabel"
+        android:layout_above="@+id/stdDateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:id="@+id/stdRadioGroup"
+        android:layout_below="@+id/stdEmailIDField"
+        android:layout_toRightOf="@+id/stdLastNameLabel"
+        android:layout_toEndOf="@+id/stdLastNameLabel">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Male"
+            android:id="@+id/stdMaleRadioButton"
+            android:checked="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Female"
+            android:id="@+id/stdFemaleRadioButton"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:onClick="onRadioButtonClicked"/>
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Arrival Date: "
+        android:id="@+id/stdArrivalDateLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/stdDateField"
+        android:layout_below="@+id/stdGenderLabel"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="MM/DD/YYYY"
+        android:ems="10"
+        android:id="@+id/stdDateField"
+        android:layout_below="@+id/stdRadioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/stdArrivalTimeLabel"
+        android:layout_toEndOf="@+id/stdArrivalTimeLabel" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Arrival Time: "
+        android:id="@+id/stdArrivalTimeLabel"
+        android:layout_alignBottom="@+id/stdTimeField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:hint="HH:MM:SS"
+        android:id="@+id/stdTimeField"
+        android:layout_alignRight="@+id/stdDateField"
+        android:layout_alignEnd="@+id/stdDateField"
+        android:layout_below="@+id/stdArrivalDateLabel"
+        android:layout_toRightOf="@+id/stdArrivalTimeLabel"
+        android:layout_toEndOf="@+id/stdArrivalTimeLabel" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Airlines: "
+        android:id="@+id/stdAirlinesLabel"
+        android:layout_alignBottom="@+id/airlinesAutoComplete"
+        android:layout_below="@+id/stdArrivalTimeLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+    <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/airlinesAutoComplete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/stdArrivalTimeLabel"
+        android:layout_toRightOf="@+id/stdArrivalTimeLabel"
+        android:layout_toEndOf="@+id/stdArrivalTimeLabel" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Flight No: "
+        android:id="@+id/stdFlightNumberLabel"
+        android:layout_alignBottom="@+id/stdFlightNumberField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdFlightNumberField"
+        android:layout_below="@+id/airlinesAutoComplete"
+        android:layout_alignLeft="@+id/airlinesAutoComplete"
+        android:layout_alignStart="@+id/airlinesAutoComplete"
+        android:layout_alignRight="@+id/stdDateField"
+        android:layout_alignEnd="@+id/stdDateField" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Drop Address: "
+        android:id="@+id/dropAddressLabel"
+        android:layout_below="@+id/stdFlightNumberLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdAddressField"
+        android:layout_alignTop="@+id/dropAddressLabel"
+        android:layout_toRightOf="@+id/dropAddressLabel"
+        android:layout_alignRight="@+id/stdDateField"
+        android:layout_alignEnd="@+id/stdDateField" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/stdRegisterButton"
+        android:layout_below="@+id/stdAddressField"
+        android:layout_toRightOf="@+id/stdArrivalTimeLabel"
+        android:layout_toEndOf="@+id/stdPasswordLabel"
+        android:layout_marginTop="30dp" />
+</RelativeLayout>
+</ScrollView>
