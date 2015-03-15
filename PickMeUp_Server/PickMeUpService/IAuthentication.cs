@@ -12,19 +12,6 @@ namespace PickMeUpService
     [ServiceContract]
     public interface IAuthentication
     {
-
-        [OperationContract]
-        string GetData(int value);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        [OperationContract]
-        AuthService.Person GetData2(string id);
-
-        [OperationContract]
-        AuthService.user getUserName(string usrn);
-
         [OperationContract]
         AuthService.Status loginStudent(string usrn, string pwd);
 

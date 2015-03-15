@@ -1,11 +1,5 @@
-D:\Source\Workspace\visual studio 2013\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.dll.config
-D:\Source\Workspace\visual studio 2013\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.dll
-D:\Source\Workspace\visual studio 2013\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.pdb
-D:\Source\Workspace\visual studio 2013\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.csprojResolveAssemblyReference.cache
-D:\Source\Workspace\visual studio 2013\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.dll
-D:\Source\Workspace\visual studio 2013\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.pdb
-G:\UMKC Spring 2015\ASE\Project\Rahul\Projects\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.dll
-G:\UMKC Spring 2015\ASE\Project\Rahul\Projects\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.pdb
-G:\UMKC Spring 2015\ASE\Project\Rahul\Projects\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.csprojResolveAssemblyReference.cache
-G:\UMKC Spring 2015\ASE\Project\Rahul\Projects\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.dll
-G:\UMKC Spring 2015\ASE\Project\Rahul\Projects\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.pdb
+C:\Users\Rahul\Documents\Visual Studio 2010\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.dll
+C:\Users\Rahul\Documents\Visual Studio 2010\Projects\PickMeUp\PickMeUpService\bin\PickMeUpService.pdb
+C:\Users\Rahul\Documents\Visual Studio 2010\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.dll
+C:\Users\Rahul\Documents\Visual Studio 2010\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.pdb
+C:\Users\Rahul\Documents\Visual Studio 2010\Projects\PickMeUp\PickMeUpService\obj\Debug\PickMeUpService.csprojResolveAssemblyReference.cache
