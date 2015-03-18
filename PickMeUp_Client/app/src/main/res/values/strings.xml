@@ -11,6 +11,8 @@
     <string name="title_activity_main">PickMeUp</string>
     <string name="title_activity_volunteer_home">PickMeUp</string>
     <string name="title_activity_volunteer_reg">PickMeUp</string>
+    <string name="clickme">Click me</string>
+
     <string-array name="airlines_array">
         <item>Sprint</item>
         <item>British</item>
@@ -18,4 +20,9 @@
         <item>Ethihad</item>
         <item>AirIndia</item>
     </string-array>
+
+    <string name="title_activity_test">testActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_expand">expandActivity</string>
+
 </resources>

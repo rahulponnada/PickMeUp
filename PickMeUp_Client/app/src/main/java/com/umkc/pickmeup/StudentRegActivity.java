@@ -114,11 +114,11 @@ public class StudentRegActivity extends ActionBarActivity {
                    EditText emailID = (EditText)findViewById(R.id.stdEmailIDField);
                    if(gender==null||gender.isEmpty())
                    {
-                       gender="M";
+                       gender="Male";
                    }
                    StudentRegistration studentReg = new StudentRegistration();
                     //weatherService.execute(new String[]{"http://api.wunderground.com/api/36b799dc821d5836/conditions/q/MO/Kansas%20city.json"});
-                    studentReg.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/register/student?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+ firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&arrivaldate="+arrivalDate.getText().toString()+"&arrivaltime=12:30:12&airlines="+airline.getText().toString()+"&flight="+flightNo.getText().toString()+"&address="+address.getText().toString()+""});
+                    studentReg.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/register/student?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+ firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&arrivaldate="+arrivalDate.getText().toString()+"&arrivaltime="+arrivalDate.getText().toString()+"%20"+arrivalTime.getText().toString()+"&airlines="+airline.getText().toString()+"&flight="+flightNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+""});
 
                 }
 
@@ -134,11 +134,11 @@ public class StudentRegActivity extends ActionBarActivity {
         switch(view.getId()) {
             case R.id.stdMaleRadioButton:
                 if (checked)
-                    gender ="M";
+                    gender ="Male";
                     break;
             case R.id.stdFemaleRadioButton:
                 if (checked)
-                    gender ="F";
+                    gender ="Female";
                     break;
         }
     }

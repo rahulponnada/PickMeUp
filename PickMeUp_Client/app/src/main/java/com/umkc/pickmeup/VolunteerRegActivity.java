@@ -108,11 +108,11 @@ public class VolunteerRegActivity extends ActionBarActivity {
                     EditText emailID = (EditText)findViewById(R.id.volEmailIDField);
                     if(gender==null||gender.isEmpty())
                     {
-                        gender="M";
+                        gender="Male";
                     }
                     VolunteerRegistration volunteerReg = new VolunteerRegistration();
                     //weatherService.execute(new String[]{"http://api.wunderground.com/api/36b799dc821d5836/conditions/q/MO/Kansas%20city.json"});
-                    volunteerReg.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/register/volunteer?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&phone="+phoneNo.getText().toString()+"&address="+address.getText().toString()+"&available="+days+""});
+                    volunteerReg.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/register/volunteer?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&phone="+phoneNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+"&available="+days+""});
 
                 }
             }
@@ -164,11 +164,11 @@ public class VolunteerRegActivity extends ActionBarActivity {
         switch(view.getId()) {
             case R.id.volMaleRadioButton:
                 if (checked)
-                    gender ="M";
+                    gender ="Male";
                 break;
             case R.id.volFemaleRadioButton:
                 if (checked)
-                    gender ="F";
+                    gender ="Female";
                 break;
         }
     }

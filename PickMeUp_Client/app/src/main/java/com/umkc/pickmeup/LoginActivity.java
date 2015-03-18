@@ -25,6 +25,9 @@ import java.io.InputStreamReader;
 
 public class LoginActivity extends ActionBarActivity {
 
+    public final static String EXTRA_MESSAGE2 = "com.umkc.pickmeup.MESSAGE2";
+    EditText studentID;
+
     private class AuthenticationService extends AsyncTask<String,Void,String>{
 
         @Override
@@ -65,16 +68,22 @@ public class LoginActivity extends ActionBarActivity {
                 Intent intent = getIntent();
                 final String tableName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE1);
 
+                //final EditText studentID = (EditText)findViewById(R.id.studentID);
+
                 if(jsonObject.getString("status").equalsIgnoreCase("true")){
                     Toast.makeText(getBaseContext(),"Login Successfull",Toast.LENGTH_SHORT).show();
                     if(tableName.equalsIgnoreCase("Student"))
                     {
                         Intent intent1= new Intent(LoginActivity.this,StudentHomeActivity.class);
+                        intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
                         startActivity(intent1);
+
                     }
                     else {
                         Intent intent1 = new Intent(LoginActivity.this, VolunteerHomeActivity.class);
+                        intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
                         startActivity(intent1);
+
                     }
 
                 }
@@ -102,14 +111,14 @@ public class LoginActivity extends ActionBarActivity {
         System.out.println("Hello stupid idioit rascall--->"+tableName);
         Button login = (Button)findViewById(R.id.login);
         Button signUp = (Button)findViewById(R.id.signup);
-
+        studentID = (EditText)findViewById(R.id.studentID);
+        final EditText password =(EditText)findViewById(R.id.password);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                EditText studentID = (EditText)findViewById(R.id.studentID);
-                EditText password =(EditText)findViewById(R.id.password);
                 System.out.println("TableName-->"+tableName);
+                //Intent intent1 = new Intent(LoginActivity.this, VolunteerHomeActivity.class);
+                //startActivity(intent1);
                 AuthenticationService authService = new AuthenticationService();
                 authService.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/login/"+tableName+"/"+studentID.getText().toString()+"/"+password.getText().toString()+""});
 
@@ -124,10 +133,13 @@ public class LoginActivity extends ActionBarActivity {
                 {
                     Intent intent1= new Intent(LoginActivity.this,StudentRegActivity.class);
                     startActivity(intent1);
+
                 }
                 else {
                     Intent intent1 = new Intent(LoginActivity.this, VolunteerRegActivity.class);
                     startActivity(intent1);
+
+
                 }
 
             }

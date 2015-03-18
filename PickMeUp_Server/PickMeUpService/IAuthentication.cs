@@ -13,19 +13,23 @@ namespace PickMeUpService
     public interface IAuthentication
     {
         [OperationContract]
-        string loginStudent(string usrn, string pwd);
+        AuthService.Status loginStudent(string usrn, string pwd);
 
         [OperationContract]
         AuthService.Status loginVolunteer(string usrn, string pwd);
        
 
         [OperationContract]
-        int registerStudent(string sid, string pwd, string fname, string lname, string eid,string sex, string adate, string atime, string airline, string flight, string address1);
+        int registerStudent(string sid, string pwd, string fname, string lname, string eid,string sex, string atime, string airline, string flight, string address1);
 
         [OperationContract]
-        int registerVolunteer(string sid, string pwd, string fname, string lname, string eid, string sex, string ph, string address1, string days);
+        int registerVolunteer(string sid, string pwd, string fname, string lname, string eid, string sex, string ph, string address1, byte mon, byte tue, byte wed, byte thu, byte fri, byte sat, byte sun);
 
+        [OperationContract]
+        String[] getStudentDetails(string usrn);
 
+        [OperationContract]
+        StudentList getVolunteerDetails(string usrn);
     }
 
 
@@ -49,5 +53,23 @@ namespace PickMeUpService
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+
+    [DataContract]
+    public class Student
+    {
+        [DataMember]
+        public String fName { get; set; }
+        [DataMember]
+        public String lName { get; set; }
+        [DataMember]
+        public String address { get; set; }
+    }
+
+    [DataContract]
+    public class StudentList
+    {
+        [DataMember]
+        public List<Student> studentList { get; set; }
     }
 }
