@@ -15,7 +15,7 @@ namespace TestWS
         [Test]
         public void testLoginStudent()
         {
-            WebRequest req = WebRequest.Create(@"http://localhost:51981/AuthService.svc/login/student/123/123");
+            WebRequest req = WebRequest.Create(@"http://localhost:52715/AuthService.svc/login/student/1234/111");
             req.Method = "GET";
             HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
             if (resp.StatusCode == HttpStatusCode.OK)
@@ -30,7 +30,7 @@ namespace TestWS
         [Test]
         public void testLoginVolunteer()
         {
-            WebRequest req = WebRequest.Create(@"http://localhost:51981/AuthService.svc/login/volunteer/1234/qwerty");
+            WebRequest req = WebRequest.Create(@"http://localhost:52715/AuthService.svc/login/volunteer/12345/qwerty");
             req.Method = "GET";
             HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
             if (resp.StatusCode == HttpStatusCode.OK)
@@ -45,7 +45,7 @@ namespace TestWS
         [Test]
         public void testRegistrationStudent()
         {
-            WebRequest req = WebRequest.Create(@"http://localhost:51981/AuthService.svc/register/student?studentid=128&passwd=211904&firstname=surya&lastname=prabha&email=ab@gmail.com&gender=f&arrivaldate=10/10/1234&arrivaltime=12&airlines=ethihad&flight=12&address=plaza");
+            WebRequest req = WebRequest.Create(@"http://localhost:52715/AuthService.svc/register/student?studentid=56789&passwd=999&firstname=suresh&lastname=tummala&email=anvesh525@gmail.com&gender=Male&arrivaltime=05/08/2015%2007:10:31&airlines=Ethihad&flight=Fh007&address=4914%20Grand%20avenue");
             req.Method = "GET";
             HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
             if (resp.StatusCode == HttpStatusCode.OK)
@@ -61,7 +61,7 @@ namespace TestWS
         [Test]
         public void testRegistrationVolunteer()
         {
-            WebRequest req = WebRequest.Create(@"http://localhost:51981/AuthService.svc/register/volunteer?studentid=389326354&passwd=don44&firstname=sharukh&lastname=khan&email=686543@fb&gender=m&phone=1234&address=dsnfkjsd&available=skh");
+            WebRequest req = WebRequest.Create(@"http://localhost:52715/AuthService.svc/register/volunteer?studentid=66666&passwd=kalla&firstname=dileep&lastname=ponnada&email=rpqtc7@mail.umkc.edu&gender=Male&phone=9988998899&address=UMKC%20library&Mon=69&Tue=36&Wed=211&Thu=234&Fri=99&Sat=111&Sun=99");
             req.Method = "GET";
             HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
             if (resp.StatusCode == HttpStatusCode.OK)
@@ -73,5 +73,38 @@ namespace TestWS
                 }
             }
         }
+
+        [Test]
+        public void testgetStudentDetails()
+        {
+            WebRequest req = WebRequest.Create(@"http://localhost:52715/AuthService.svc/login/student/1234");
+            req.Method = "GET";
+            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+            if (resp.StatusCode == HttpStatusCode.OK)
+            {
+                using (Stream respStream = resp.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(respStream, Encoding.UTF8);
+                    Assert.AreEqual("[\"suresh\",\"tummala\",\"anvesh525@gmail.com\",\"Ethihad\",\"Fh007\",\"12345     \"]", reader.ReadToEnd().ToString());
+                }
+            }
+        }
+
+        [Test]
+        public void testgetVolunteerDetails()
+        {
+            WebRequest req = WebRequest.Create(@"http://localhost:52715/AuthService.svc/login/volunteer/12345");
+            req.Method = "GET";
+            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+            if (resp.StatusCode == HttpStatusCode.OK)
+            {
+                using (Stream respStream = resp.GetResponseStream())
+                {
+                    StreamReader reader = new StreamReader(respStream, Encoding.UTF8);
+                    Assert.AreEqual("{\"studentList\":[{\"address\":\"4914 Grand avenue\",\"fName\":\"suresh\",\"lName\":\"tummala\"},{\"address\":\"4914 Grand avenue\",\"fName\":\"suresh\",\"lName\":\"tummala\"},{\"address\":\"4914 Grand avenue\",\"fName\":\"satish\",\"lName\":\"tummala\"}]}", reader.ReadToEnd().ToString());
+                }
+            }
+        }
+
     }
 }
