@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -19,10 +19,11 @@ namespace PickMeUpService
     {
         // Student login() -- fetches password and compares it with the input password then returns true or false.
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "login/student/{usrn}/{pwd}")]
-        public Status loginStudent(string usrn,string pwd)
+        public string loginStudent(string usrn,string pwd)
         {
             string password = null;
             bool stats = false;
+            string statusEmail = "Email Send failed";
             try
             {
                 SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["pickdb"].ConnectionString);
@@ -45,6 +46,10 @@ namespace PickMeUpService
                         if (password == pwd)
                         {
                             stats = true;
+                            sendNotification email = new sendNotification();
+                            string[] address = {"rahul.auce@hotmail.com"};
+                            string[] addresscc = { };
+                            statusEmail = email.SendEmail("rahulponnada@ymail.com","6thsensE",address,addresscc,"PickupNotification","Helo",false);
                         }
                         else
                         {
@@ -65,10 +70,11 @@ namespace PickMeUpService
                 e.GetBaseException();
 
             }
-            return new Status()
+         /*   return new Status()
             {
                 status = stats
-            };
+            };*/
+            return statusEmail;
         }
 
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "login/volunteer/{usrn}/{pwd}")]
@@ -208,6 +214,6 @@ namespace PickMeUpService
             }
             public bool status { get; set; }
         }
-       
+               
     }
 }

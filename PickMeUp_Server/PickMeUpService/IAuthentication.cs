@@ -13,7 +13,7 @@ namespace PickMeUpService
     public interface IAuthentication
     {
         [OperationContract]
-        AuthService.Status loginStudent(string usrn, string pwd);
+        string loginStudent(string usrn, string pwd);
 
         [OperationContract]
         AuthService.Status loginVolunteer(string usrn, string pwd);
