@@ -13,3 +13,13 @@ C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp-master\PickMeUp_S
 C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp-master\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.csprojResolveAssemblyReference.cache
 C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp-master\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.dll
 C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp-master\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.pdb
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUp_Server\PickMeUpService\bin\PickMeUpService.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUp_Server\PickMeUpService\bin\PickMeUpService.pdb
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.csprojResolveAssemblyReference.cache
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.pdb
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUpService\bin\PickMeUpService.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUpService\bin\PickMeUpService.pdb
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.csprojResolveAssemblyReference.cache
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\PickMeUp_Server\PickMeUpService\obj\Debug\PickMeUpService.pdb

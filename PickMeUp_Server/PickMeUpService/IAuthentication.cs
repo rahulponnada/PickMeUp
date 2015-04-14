@@ -17,7 +17,9 @@ namespace PickMeUpService
 
         [OperationContract]
         AuthService.Status loginVolunteer(string usrn, string pwd);
-       
+
+        [OperationContract]
+        int assignVolunteer(string usrn);
 
         [OperationContract]
         int registerStudent(string sid, string pwd, string fname, string lname, string eid,string sex, string atime, string airline, string flight, string address1);
@@ -30,6 +32,15 @@ namespace PickMeUpService
 
         [OperationContract]
         StudentList getVolunteerDetails(string usrn);
+
+        [OperationContract]
+        StudentVolunteerArrayList getStudentVolunteerDetails(string usrn);
+
+        [OperationContract]
+        int registerAdmin(string sid, string pwd, string fname, string lname, string eid, string sex, string ph, string address, string university);
+
+        [OperationContract]
+        AuthService.Status loginAdmin(string usrn, string pwd);
     }
 
 
@@ -71,5 +82,32 @@ namespace PickMeUpService
     {
         [DataMember]
         public List<Student> studentList { get; set; }
+    }
+
+    [DataContract]
+    public class VStudents
+    {
+        [DataMember]
+        public String userName { get; set; }
+        [DataMember]
+        public String fName { get; set; }
+        [DataMember]
+        public String lName { get; set; }
+        [DataMember]
+        public String arrivalTime { get; set; }
+    }
+
+    [DataContract]
+    public class StudentVolunteerList
+    {
+        [DataMember]
+        public List<VStudents> studentList { get; set; }
+    }
+
+    [DataContract]
+    public class StudentVolunteerArrayList
+    {
+        [DataMember]
+        public List<StudentVolunteerList> VolunteerList { get; set; }
     }
 }

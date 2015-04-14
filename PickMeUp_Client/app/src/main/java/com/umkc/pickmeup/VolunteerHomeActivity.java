@@ -81,11 +81,11 @@ public class VolunteerHomeActivity extends ActionBarActivity {
                             studentList.getJSONObject(i);
 
                     add(student.getString("fName"),student.getString("lName"),student.getString("address"));
-                    Toast.makeText(getBaseContext(),
+                    /*Toast.makeText(getBaseContext(),
                             student.getString("fName") + " - " +
                                     student.getString("lName") + ", " +
                                     student.getString("address"),
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_SHORT).show();*/
                 }
             } catch (Exception e) {
                 System.out.println(e.getStackTrace());
@@ -120,7 +120,7 @@ public class VolunteerHomeActivity extends ActionBarActivity {
         Button navigate = (Button) findViewById(R.id.navigate);
 
         VolunteerHomeService volService= new VolunteerHomeService();
-        volService.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/login/volunteer/"+message});
+        volService.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/login/volunteer/"+message});
 
     }
     private void add(String fname,String lname,final String addr){
@@ -142,7 +142,8 @@ public class VolunteerHomeActivity extends ActionBarActivity {
         firstName.setText(fname);
         lastName.setText(lname);
         address.setText(addr);
-        navigate.setOnClickListener(new View.OnClickListener() {
+        navigate.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Uri gmmIntentUri = Uri.parse("google.navigation:q="+addr+",+KansasCity,+MO+64112&mode=d");

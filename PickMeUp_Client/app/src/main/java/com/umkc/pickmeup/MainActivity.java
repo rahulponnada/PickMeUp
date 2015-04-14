@@ -21,6 +21,7 @@ public class MainActivity extends ActionBarActivity {
 
         final Button student = (Button)findViewById(R.id.student);
         final Button volunteer = (Button)findViewById(R.id.volunteer);
+        final Button admin = (Button)findViewById(R.id.admin);
 
         student.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +37,15 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intent= new Intent(MainActivity.this,LoginActivity.class);
                 String message = volunteer.getText().toString();
+                intent.putExtra(EXTRA_MESSAGE1 , message);
+                startActivity(intent);
+            }
+        });
+        admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(MainActivity.this,LoginActivity.class);
+                String message = admin.getText().toString();
                 intent.putExtra(EXTRA_MESSAGE1 , message);
                 startActivity(intent);
             }

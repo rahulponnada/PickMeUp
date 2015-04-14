@@ -103,7 +103,7 @@ public class StudentHomeActivity extends ActionBarActivity {
         String message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE2);
 
         StudentHomeService stdService = new StudentHomeService();
-        stdService.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/login/student/"+message,"http://api.wunderground.com/api/36b799dc821d5836/conditions/q/MO/Kansas%20City.json"});
+        stdService.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/login/student/"+message,"http://api.wunderground.com/api/36b799dc821d5836/conditions/q/MO/Kansas%20City.json"});
     }
 
 

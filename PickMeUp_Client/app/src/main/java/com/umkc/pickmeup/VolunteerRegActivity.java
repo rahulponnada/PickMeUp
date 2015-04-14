@@ -30,6 +30,13 @@ public class VolunteerRegActivity extends ActionBarActivity {
 
     String gender;
     String days="";
+    int monValue=0;
+    int tueValue=0;
+    int wedValue=0;
+    int thuValue=0;
+    int friValue=0;
+    int satValue=0;
+    int sunValue=0;
     private class VolunteerRegistration extends AsyncTask<String,Void,String> {
 
         @Override
@@ -110,10 +117,11 @@ public class VolunteerRegActivity extends ActionBarActivity {
                     {
                         gender="Male";
                     }
+                    System.out.println(monValue+"  "+tueValue+"  "+wedValue+"  "+thuValue+"  "+friValue+"  "+satValue+"  "+sunValue);
                     VolunteerRegistration volunteerReg = new VolunteerRegistration();
                     //weatherService.execute(new String[]{"http://api.wunderground.com/api/36b799dc821d5836/conditions/q/MO/Kansas%20city.json"});
-                    volunteerReg.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/register/volunteer?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&phone="+phoneNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+"&available="+days+""});
-
+                    volunteerReg.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/register/volunteer?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&phone="+phoneNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+"&Mon="+monValue+"&Tue="+tueValue+"&Wed="+wedValue+"&Thu="+thuValue+"&Fri="+friValue+"&Sat="+satValue+"&Sun="+sunValue+""});
+                    //http://localhost:52715/AuthService.svc/register/volunteer?studentid=90900&passwd=puski&firstname=jaffa&lastname=lalla&email=atmc9@mail.umkc.edu&gender=Male&phone=998998899&address=UMKC%20library&Mon=12&Tue=255&Wed=122&Thu=133&Fri=78&Sat=123&Sun=8
                 }
             }
         });
@@ -121,37 +129,233 @@ public class VolunteerRegActivity extends ActionBarActivity {
 
     public void onCheckboxClicked(View view) {
         // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
+       boolean checked = ((CheckBox) view).isChecked();
 
         // Check which checkbox was clicked
         switch(view.getId()) {
-            case R.id.monCheckBox:
+            case R.id.check1:
                 if (checked)
-                    days=days+"M";
+                    monValue=monValue + (int)Math.pow(2,0);
                 break;
-            case R.id.tueCheckBox:
+            case R.id.check2:
                 if (checked)
-                    days=days+"T";
+                    monValue=monValue + (int)Math.pow(2,1);
                 break;
-            case R.id.wedCheckBox:
+            case R.id.check3:
                 if (checked)
-                    days=days+"W";
+                    monValue=monValue + (int)Math.pow(2,2);
                 break;
-            case R.id.ThuCheckBox:
+            case R.id.check4:
                 if (checked)
-                    days=days+"Th";
+                    monValue=monValue + (int)Math.pow(2,3);
                 break;
-            case R.id.friCheckBox:
+            case R.id.check5:
                 if (checked)
-                    days=days+"F";
+                    monValue=monValue + (int)Math.pow(2,4);
                 break;
-            case R.id.satCheckBox:
+            case R.id.check6:
                 if (checked)
-                    days=days+"S";
+                    monValue=monValue + (int)Math.pow(2,5);
                 break;
-            case R.id.sunCheckBox:
+            case R.id.check7:
                 if (checked)
-                    days=days+"Su";
+                    monValue=monValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check8:
+                if (checked)
+                    monValue=monValue + (int)Math.pow(2,7);
+                break;
+            case R.id.check9:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,0);
+                break;
+            case R.id.check10:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,1);
+                break;
+            case R.id.check11:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,2);
+                break;
+            case R.id.check12:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,3);
+                break;
+            case R.id.check13:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,4);
+                break;
+            case R.id.check14:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,5);
+                break;
+            case R.id.check15:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check16:
+                if (checked)
+                    tueValue=tueValue + (int)Math.pow(2,7);
+                break;
+            case R.id.check17:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,0);
+                break;
+            case R.id.check18:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,1);
+                break;
+            case R.id.check19:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,2);
+                break;
+            case R.id.check20:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,3);
+                break;
+            case R.id.check21:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,4);
+                break;
+            case R.id.check22:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,5);
+                break;
+            case R.id.check23:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check24:
+                if (checked)
+                    wedValue=wedValue + (int)Math.pow(2,7);
+                break;
+            case R.id.check25:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,0);
+                break;
+            case R.id.check26:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,1);
+                break;
+            case R.id.check27:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,2);
+                break;
+            case R.id.check28:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,3);
+                break;
+            case R.id.check29:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,4);
+                break;
+            case R.id.check30:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,5);
+                break;
+            case R.id.check31:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check32:
+                if (checked)
+                    thuValue=thuValue + (int)Math.pow(2,7);
+                break;
+            case R.id.check33:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,0);
+                break;
+            case R.id.check34:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,1);
+                break;
+            case R.id.check35:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,2);
+                break;
+            case R.id.check36:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,3);
+                break;
+            case R.id.check37:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,4);
+                break;
+            case R.id.check38:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,5);
+                break;
+            case R.id.check39:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check40:
+                if (checked)
+                    friValue=friValue + (int)Math.pow(2,7);
+                break;
+            case R.id.check41:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,0);
+                break;
+            case R.id.check42:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,1);
+                break;
+            case R.id.check43:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,2);
+                break;
+            case R.id.check44:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,3);
+                break;
+            case R.id.check45:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,4);
+                break;
+            case R.id.check46:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,5);
+                break;
+            case R.id.check47:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check48:
+                if (checked)
+                    satValue=satValue + (int)Math.pow(2,7);
+                break;
+            case R.id.check49:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,0);
+                break;
+            case R.id.check50:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,1);
+                break;
+            case R.id.check51:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,2);
+                break;
+            case R.id.check52:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,3);
+                break;
+            case R.id.check53:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,4);
+                break;
+            case R.id.check54:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,5);
+                break;
+            case R.id.check55:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,6);
+                break;
+            case R.id.check56:
+                if (checked)
+                    sunValue=sunValue + (int)Math.pow(2,7);
                 break;
         }
     }

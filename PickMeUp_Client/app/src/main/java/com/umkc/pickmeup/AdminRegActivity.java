@@ -2,16 +2,16 @@ package com.umkc.pickmeup;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
@@ -25,11 +25,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class StudentRegActivity extends ActionBarActivity {
+public class AdminRegActivity extends ActionBarActivity {
 
-    public final static String EXTRA_MESSAGE2 = "com.umkc.pickmeup.MESSAGE2";
     String gender;
-    private class StudentRegistration extends AsyncTask<String,Void,String> {
+    private class AdminRegistration extends AsyncTask<String,Void,String> {
 
         @Override
         protected String doInBackground(String... urls) {
@@ -66,10 +65,12 @@ public class StudentRegActivity extends ActionBarActivity {
             try {
 
                 if(result.equalsIgnoreCase("1")) {
-                    Toast.makeText(getBaseContext(), "Acoount Succesfully Created - Please login", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(StudentRegActivity.this, MainActivity.class);
+                    Toast.makeText(getBaseContext(), "Account Succesfully Created - Please login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(AdminRegActivity.this, MainActivity.class);
+
                     startActivity(intent);
                 }
+
             } catch (Exception e) {
                 //Log.d("ReadPlacesFeedTask", e.getLocalizedMessage());
                 System.out.println(e.getStackTrace());
@@ -82,46 +83,38 @@ public class StudentRegActivity extends ActionBarActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        setContentView(R.layout.activity_student_reg);
-
-        // Get a reference to the AutoCompleteTextView in the layout
-        AutoCompleteTextView textView = (AutoCompleteTextView) findViewById(R.id.airlinesAutoComplete);
-        // Get the string array
-        String[] airlines = getResources().getStringArray(R.array.airlines_array);
-        // Create the adapter and set it to the AutoCompleteTextView
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, airlines);
-        textView.setAdapter(adapter);
-        Button register = (Button)findViewById(R.id.stdRegisterButton);
+        setContentView(R.layout.activity_admin_reg);
+        Button register = (Button)findViewById(R.id.admRegisterButton);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-               if(checkValidations()){
-                   EditText studentID = (EditText)findViewById(R.id.stdStudentIDField);
-                   EditText password = (EditText)findViewById(R.id.stdPasswordField);
-                   EditText firstName = (EditText)findViewById(R.id.stdFirstNameField);
-                   EditText lastName = (EditText)findViewById(R.id.stdLastNameField);
-                   EditText arrivalDate = (EditText)findViewById(R.id.stdDateField);
-                   EditText arrivalTime = (EditText)findViewById(R.id.stdTimeField);
-                   EditText airline = (EditText)findViewById(R.id.airlinesAutoComplete);
-                   EditText flightNo = (EditText)findViewById(R.id.stdFlightNumberField);
-                   EditText address = (EditText)findViewById(R.id.stdAddressField);
-                   EditText emailID = (EditText)findViewById(R.id.stdEmailIDField);
-                   if(gender==null||gender.isEmpty())
-                   {
-                       gender="Male";
-                   }
-                   StudentRegistration studentReg = new StudentRegistration();
+                if (checkValidations()) {
+
+                    EditText studentID = (EditText)findViewById(R.id.admStudentIDField);
+                    EditText password = (EditText)findViewById(R.id.admPasswordField);
+                    EditText firstName = (EditText)findViewById(R.id.admFirstNameField);
+                    EditText lastName = (EditText)findViewById(R.id.admLastNameField);
+                    EditText phoneNo = (EditText)findViewById(R.id.admPhoneNumberField);
+                    EditText address = (EditText)findViewById(R.id.admAddressField);
+                    EditText university = (EditText)findViewById(R.id.admUniversityField);
+                    EditText emailID = (EditText)findViewById(R.id.admEmailIDField);
+                    if(gender==null||gender.isEmpty())
+                    {
+                        gender="Male";
+                    }
+                    AdminRegistration adminReg = new AdminRegistration();
                     //weatherService.execute(new String[]{"http://api.wunderground.com/api/36b799dc821d5836/conditions/q/MO/Kansas%20city.json"});
-                    studentReg.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/register/student?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+ firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&arrivaldate="+arrivalDate.getText().toString()+"&arrivaltime="+arrivalDate.getText().toString()+"%20"+arrivalTime.getText().toString()+"&airlines="+airline.getText().toString()+"&flight="+flightNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+""});
+                    //http://localhost:52715/AuthService.svc/register/admin?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&phone="+phoneNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+"&university="+university.getText().toString().replaceAll(" ","%20")
+                    adminReg.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/register/admin?studentid="+studentID.getText().toString()+"&passwd="+password.getText().toString()+"&firstname="+firstName.getText().toString()+"&lastname="+lastName.getText().toString()+"&email="+emailID.getText().toString()+"&gender="+gender+"&phone="+phoneNo.getText().toString()+"&address="+address.getText().toString().replaceAll(" ","%20")+"&university="+university.getText().toString().replaceAll(" ","%20")+""});
 
                 }
-
             }
         });
     }
@@ -132,32 +125,33 @@ public class StudentRegActivity extends ActionBarActivity {
 
         // Check which radio button was clicked
         switch(view.getId()) {
-            case R.id.stdMaleRadioButton:
+            case R.id.admMaleRadioButton:
                 if (checked)
                     gender ="Male";
-                    break;
-            case R.id.stdFemaleRadioButton:
+                break;
+            case R.id.admFemaleRadioButton:
                 if (checked)
                     gender ="Female";
-                    break;
+                break;
         }
     }
+
 
     private boolean checkValidations(){
 
         boolean flag=true;
 
-        EditText studentID = (EditText)findViewById(R.id.stdStudentIDField);
-        EditText password = (EditText)findViewById(R.id.stdPasswordField);
-        EditText firstName = (EditText)findViewById(R.id.stdFirstNameField);
-        EditText lastName = (EditText)findViewById(R.id.stdLastNameField);
-        EditText arrivalDate = (EditText)findViewById(R.id.stdDateField);
-        EditText arrivalTime = (EditText)findViewById(R.id.stdTimeField);
-        EditText airlines = (EditText)findViewById(R.id.airlinesAutoComplete);
-        EditText flightNo = (EditText)findViewById(R.id.stdFlightNumberField);
-        EditText address = (EditText)findViewById(R.id.stdAddressField);
+        EditText studentID = (EditText)findViewById(R.id.admStudentIDField);
+        EditText password = (EditText)findViewById(R.id.admPasswordField);
+        EditText firstName = (EditText)findViewById(R.id.admFirstNameField);
+        EditText lastName = (EditText)findViewById(R.id.admLastNameField);
+        EditText phoneNo = (EditText)findViewById(R.id.admPhoneNumberField);
+        EditText address = (EditText)findViewById(R.id.admAddressField);
 
-        EditText emailID = (EditText)findViewById(R.id.stdEmailIDField);
+        EditText university = (EditText)findViewById(R.id.admUniversityField);
+        RadioGroup radioGroup = (RadioGroup)findViewById((R.id.admRadioGroup));
+
+        EditText emailID = (EditText)findViewById(R.id.admEmailIDField);
         if(studentID.getText().toString()==null||studentID.getText().toString().isEmpty()){
             studentID.setError("StudentID is mandatory");
             flag = false;
@@ -170,28 +164,21 @@ public class StudentRegActivity extends ActionBarActivity {
             firstName.setError("FirstName is mandatory");
             flag = false;
         }
+
         if(lastName.getText().toString()==null||lastName.getText().toString().isEmpty()){
             lastName.setError("LastName is mandatory");
             flag = false;
         }
-        if(arrivalDate.getText().toString()==null||arrivalDate.getText().toString().isEmpty()){
-            arrivalDate.setError("Arrival Date is mandatory");
-            flag = false;
-        }
-        if(arrivalTime.getText().toString()==null||arrivalTime.getText().toString().isEmpty()){
-            arrivalTime.setError("Arrival Time is mandatory");
-            flag = false;
-        }
-        if(airlines.getText().toString()==null||airlines.getText().toString().isEmpty()){
-            airlines.setError("Airlines is mandatory");
-            flag = false;
-        }
-        if(flightNo.getText().toString()==null||flightNo.getText().toString().isEmpty()){
-            flightNo.setError("Flight No is mandatory");
+        if(phoneNo.getText().toString()==null||phoneNo.getText().toString().isEmpty()){
+            phoneNo.setError("Phone No is mandatory");
             flag = false;
         }
         if(address.getText().toString()==null||address.getText().toString().isEmpty()){
             address.setError("Address is mandatory");
+            flag = false;
+        }
+        if(university.getText().toString()==null||university.getText().toString().isEmpty()){
+            university.setError("University is mandatory");
             flag = false;
         }
         if(!isValidEmail(emailID.getText().toString()))
@@ -201,6 +188,8 @@ public class StudentRegActivity extends ActionBarActivity {
         }
         return flag;
     }
+
+
 
     // validating email id
     private boolean isValidEmail(String email) {
@@ -212,19 +201,10 @@ public class StudentRegActivity extends ActionBarActivity {
         return matcher.matches();
     }
 
-    // validating password with retype password
-    private boolean isValidPassword(String pass) {
-        if (pass != null && pass.length() > 6) {
-            return true;
-        }
-        return false;
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_student_reg, menu);
+        getMenuInflater().inflate(R.menu.menu_volunteer_reg, menu);
         return true;
     }
 

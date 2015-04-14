@@ -46,6 +46,15 @@
             android:name=".expandActivity"
             android:label="@string/title_activity_expand" >
         </activity>
+        <activity
+            android:name=".AdminHomeActivity"
+            android:label="@string/title_activity_admin_home" >
+        </activity>
+        <activity
+            android:name=".AdminRegActivity"
+            android:label="@string/title_activity_admin_reg" >
+        </activity>
+
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@
 
     <string name="app_name">PickMeUp</string>
     <string name="student_home">Welcome To Student Home Page</string>
+    <string name="admin_home">Welcome To Admin Home Page</string>
     <string name="volunteer_home">Welcome To Volunteer Home Page</string>
     <string name="username">username</string>
     <string name="action_settings">Settings</string>
@@ -11,6 +12,7 @@
     <string name="title_activity_main">PickMeUp</string>
     <string name="title_activity_volunteer_home">PickMeUp</string>
     <string name="title_activity_volunteer_reg">PickMeUp</string>
+    <string name="title_activity_admin_reg">PickMeUp</string>
     <string name="clickme">Click me</string>
 
     <string-array name="airlines_array">
@@ -24,5 +26,6 @@
     <string name="title_activity_test">testActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_expand">expandActivity</string>
+    <string name="title_activity_admin_home">PickMeUp</string>
 
 </resources>

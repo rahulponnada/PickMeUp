@@ -1,0 +1,7 @@
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\bin\Debug\TestWS.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\bin\Debug\TestWS.pdb
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\bin\Debug\nunit.framework.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\bin\Debug\nunit.framework.xml
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\obj\Debug\TestWS.csprojResolveAssemblyReference.cache
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\obj\Debug\TestWS.dll
+C:\Users\Anvesh\Documents\Visual Studio 2010\Projects\TestWS\TestWS\obj\Debug\TestWS.pdb

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="student"
         android:id="@+id/student"
-        android:layout_marginTop="149dp"
+        android:layout_marginTop="80dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:width="150dp" />
@@ -24,12 +24,23 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="volunteer"
-        android:id="@+id/volunteer"
-        android:layout_marginTop="121dp"
+        android:text="admin"
+        android:id="@+id/admin"
+        android:layout_marginTop="60dp"
         android:layout_below="@+id/student"
         android:layout_alignRight="@+id/student"
         android:layout_alignEnd="@+id/student"
+        android:width="150dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="volunteer"
+        android:id="@+id/volunteer"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/admin"
+        android:layout_alignRight="@+id/admin"
+        android:layout_alignEnd="@+id/admin"
         android:width="150dp" />
 </RelativeLayout>
 </ScrollView>

@@ -79,8 +79,14 @@ public class LoginActivity extends ActionBarActivity {
                         startActivity(intent1);
 
                     }
-                    else {
+                    else if (tableName.equalsIgnoreCase("Volunteer")){
                         Intent intent1 = new Intent(LoginActivity.this, VolunteerHomeActivity.class);
+                        intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
+                        startActivity(intent1);
+
+                    }
+                    else if (tableName.equalsIgnoreCase("Admin")){
+                        Intent intent1 = new Intent(LoginActivity.this, AdminHomeActivity.class);
                         intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
                         startActivity(intent1);
 
@@ -117,10 +123,10 @@ public class LoginActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 System.out.println("TableName-->"+tableName);
-                //Intent intent1 = new Intent(LoginActivity.this, VolunteerHomeActivity.class);
+                //Intent intent1 = new Intent(LoginActivity.this, AdminHomeActivity.class);
                 //startActivity(intent1);
                 AuthenticationService authService = new AuthenticationService();
-                authService.execute(new String[]{"http://10.0.2.2:51981/AuthService.svc/login/"+tableName+"/"+studentID.getText().toString()+"/"+password.getText().toString()+""});
+                authService.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/login/"+tableName+"/"+studentID.getText().toString()+"/"+password.getText().toString()+""});
 
             }
         });
@@ -135,10 +141,16 @@ public class LoginActivity extends ActionBarActivity {
                     startActivity(intent1);
 
                 }
-                else {
+                else if(tableName.equalsIgnoreCase("volunteer")){
                     Intent intent1 = new Intent(LoginActivity.this, VolunteerRegActivity.class);
                     startActivity(intent1);
 
+                }
+                else{
+                    System.out.println("Before Admin Reg");
+                    Intent intent1 = new Intent(LoginActivity.this, AdminRegActivity.class);
+                    startActivity(intent1);
+                    System.out.println("After Admin Reg");
 
                 }
 
