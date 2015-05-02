@@ -1,0 +1,254 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.umkc.pickmeup.StudentRegActivity"
+    android:id="@+id/registerLayout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="StudentID: "
+        android:id="@+id/stdStudentIDUpdateLabel"
+        android:layout_alignBottom="@+id/stdStudentIDUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/stdStudentIDUpdateField"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/stdStudentIDUpdateLabel"
+        android:layout_toRightOf="@+id/stdStudentIDUpdateLabel"
+        android:layout_alignLeft="@+id/stdStudentIDUpdateField"
+        android:layout_alignStart="@+id/stdStudentIDUpdateField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="First Name: "
+        android:id="@+id/stdFirstNameUpdateLabel"
+        android:layout_alignBottom="@+id/stdFirstNameUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdFirstNameUpdateField"
+        android:layout_below="@+id/stdStudentIDUpdateField"
+        android:layout_alignRight="@+id/stdStudentIDUpdateField"
+        android:layout_alignEnd="@+id/stdStudentIDUpdateField"
+        android:layout_alignLeft="@+id/stdTimeUpdateField"
+        android:layout_alignStart="@+id/stdTimeUpdateField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Last Name: "
+        android:id="@+id/stdLastNameUpdateLabel"
+        android:layout_alignBottom="@+id/stdLastNameUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdLastNameUpdateField"
+        android:layout_below="@+id/stdFirstNameUpdateLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/stdFirstNameUpdateField"
+        android:layout_alignStart="@+id/stdFirstNameUpdateField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Email ID: "
+        android:id="@+id/stdEmailIDUpdateLabel"
+        android:layout_alignBottom="@+id/stdEmailIDUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/stdEmailIDUpdateField"
+        android:layout_below="@+id/stdLastNameUpdateLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/stdLastNameUpdateField"
+        android:layout_alignStart="@+id/stdLastNameUpdateField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender: "
+        android:id="@+id/stdGenderUpdateLabel"
+        android:layout_above="@+id/stdDateUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:id="@+id/stdRadioGroupUpdate"
+        android:layout_below="@+id/stdEmailIDUpdateField"
+        android:layout_toRightOf="@+id/stdLastNameUpdateLabel"
+        android:layout_toEndOf="@+id/stdLastNameUpdateLabel">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Male"
+            android:id="@+id/stdMaleRadioButtonUpdate"
+            android:checked="true"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="10dp"
+            android:onClick="onRadioButtonClicked"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Female"
+            android:id="@+id/stdFemaleRadioButtonUpdate"
+            android:layout_gravity="center_horizontal"
+            android:checked="false"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:onClick="onRadioButtonClicked"/>
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Arrival Date: "
+        android:id="@+id/stdArrivalDateUpdateLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/stdDateUpdateField"
+        android:layout_below="@+id/stdGenderUpdateLabel"
+        android:layout_marginTop="10dp" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:hint="MM/DD/YYYY"
+        android:ems="10"
+        android:id="@+id/stdDateUpdateField"
+        android:layout_below="@+id/stdRadioGroupUpdate"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_toEndOf="@+id/stdArrivalTimeUpdateLabel" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Arrival Time: "
+        android:id="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_alignBottom="@+id/stdTimeUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="time"
+        android:ems="10"
+        android:hint="HH:MM:SS"
+        android:id="@+id/stdTimeUpdateField"
+        android:layout_alignRight="@+id/stdDateUpdateField"
+        android:layout_alignEnd="@+id/stdDateUpdateField"
+        android:layout_below="@+id/stdArrivalDateUpdateLabel"
+        android:layout_toRightOf="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_toEndOf="@+id/stdArrivalTimeUpdateLabel" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Airlines: "
+        android:id="@+id/stdAirlinesUpdateLabel"
+        android:layout_alignBottom="@+id/airlinesUpdateAutoComplete"
+        android:layout_below="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+    <AutoCompleteTextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/airlinesUpdateAutoComplete"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_toRightOf="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_toEndOf="@+id/stdArrivalTimeUpdateLabel" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Flight No: "
+        android:id="@+id/stdFlightNumberUpdateLabel"
+        android:layout_alignBottom="@+id/stdFlightNumberUpdateField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdFlightNumberUpdateField"
+        android:layout_below="@+id/airlinesUpdateAutoComplete"
+        android:layout_alignLeft="@+id/airlinesUpdateAutoComplete"
+        android:layout_alignStart="@+id/airlinesUpdateAutoComplete"
+        android:layout_alignRight="@+id/stdDateUpdateField"
+        android:layout_alignEnd="@+id/stdDateUpdateField" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Drop Address: "
+        android:id="@+id/dropAddressUpdateLabel"
+        android:layout_below="@+id/stdFlightNumberUpdateLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stdAddressUpdateField"
+        android:layout_alignTop="@+id/dropAddressUpdateLabel"
+        android:layout_toRightOf="@+id/dropAddressUpdateLabel"
+        android:layout_alignRight="@+id/stdDateUpdateField"
+        android:layout_alignEnd="@+id/stdDateUpdateField" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:id="@+id/stdUpdateButton"
+        android:layout_below="@+id/stdAddressUpdateField"
+        android:layout_toRightOf="@+id/stdArrivalTimeUpdateLabel"
+        android:layout_toEndOf="@+id/stdStudentIDUpdateLabel"
+        android:layout_marginTop="30dp" />
+</RelativeLayout>
+</ScrollView>

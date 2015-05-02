@@ -19,6 +19,204 @@ namespace PickMeUpService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class AuthService : IAuthentication
     {
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "updateStudentDetails/student?studentid={sid}&firstname={fname}&lastname={lname}&email={eid}&gender={sex}&arrivaltime={atime}&airlines={airline}&flight={flight}&address={address1}")]
+        public int updateStudentDetails(string sid, string fname, string lname, string eid, string sex, string atime, string airline, string flight, string address1)
+          {
+            //atime should be of this format "MM/dd/yyyy HH:mm:ss"
+            int result = 39;
+            String ff ="";
+            DateTime parsedDate;
+            DateTime dbDate = DateTime.Today;
+            try
+            {
+                SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["pickdb"].ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                result = 45;
+
+                string pattern = "MM/dd/yyyy HH:mm:ss";
+                                
+                if (DateTime.TryParseExact(atime, pattern, null, DateTimeStyles.None, out parsedDate))
+                    Console.WriteLine("Converted to {1:d}.", atime, parsedDate);
+                else
+                    Console.WriteLine("Unable to convert '{0}' to a date and time.", atime);
+
+                cmd.CommandText = "SELECT * from student where studentid ='" + sid + "'"; 
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = sqlConnection1;
+                sqlConnection1.Open();
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        dbDate = reader.GetDateTime(6);
+                        ff = reader.GetString(10);
+                        sqlConnection1.Close();
+                                         
+                    if ((!ff.Equals("0")) && (!parsedDate.Equals(dbDate)))
+                    {
+                        cmd.CommandText = " UPDATE Volunteer SET noOfStudents = noOfStudents - 1 WHERE studentid = " + ff;
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = sqlConnection1;
+                        sqlConnection1.Open();
+                        result = cmd.ExecuteNonQuery();
+                        sqlConnection1.Close(); 
+                    }
+                    cmd.CommandText = " UPDATE student SET firstname = '" + fname + "' , lastname = '" + lname + "' , email = '" + eid + "' , gender = '" + sex + "' , arrivaltime = '" + parsedDate + "' , airlines = '" + airline + "' , flight = '" + flight + "' , address1 = '" + address1 + "' WHERE studentid = " + sid;
+                     
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = sqlConnection1;
+                    sqlConnection1.Open();
+                    result = cmd.ExecuteNonQuery();
+                    sqlConnection1.Close();
+
+                    if ((result == 1) && (!parsedDate.Equals(dbDate)))
+                    {
+                        IntelligentSystem I = new IntelligentSystem();
+                        result = I.assignVolunteer(sid);
+                    }
+                    } 
+                }
+               
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+
+            }
+            return result;
+        }
+
+
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "notifyall/{msg}")]
+        public String notifyAll(string msg)
+        {
+            string statusEmail = "Email Send failed";
+            System.Diagnostics.Debug.WriteLine("Hello !!");
+            sendNotification email1 = new sendNotification();
+           // string[] studentAddress = { };
+            string[] addresscc = { };
+            try
+            {
+                SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["pickdb"].ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+                string mailID;
+
+                cmd.CommandText = "SELECT * FROM student";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = sqlConnection1;
+                sqlConnection1.Open();
+                int i = 0;
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                     while (reader.Read())
+                    {
+                        mailID = reader.GetString(4);
+                        string[] studentAddress = { mailID };
+                        statusEmail = email1.SendEmail("pickmeupUMKC@gmail.com", "pickup123", studentAddress, addresscc, "PickupNotification", "PickUP Announcement: " + msg, false);                  
+                    }
+                }
+                sqlConnection1.Close();
+
+                SqlConnection sqlConnection2 = new SqlConnection(ConfigurationManager.ConnectionStrings["pickdb"].ConnectionString);
+                cmd = new SqlCommand();
+                cmd.CommandText = "SELECT * FROM Volunteer";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = sqlConnection1;
+                sqlConnection1.Open();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                     while (reader.Read())
+                    {
+                        mailID = reader.GetString(4);
+                        string[] studentAddress = { mailID };
+                        statusEmail = email1.SendEmail("pickmeupUMKC@gmail.com", "pickup123", studentAddress, addresscc, "PickupNotification", "PickUP Announcement: " + msg, false);
+                  
+                    }
+                }                            
+            }
+
+            catch (Exception e)
+            {
+                e.GetBaseException();
+            }
+
+            return statusEmail;
+        }
+
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "unassignvolunteer/{sid}/{vid}")]
+        public int unAssignVolunteer(string sid, string vid)
+        {
+            int result = 34;
+            try
+            {
+                String volunteer = null;
+                SqlConnection sqlConnection1 = new SqlConnection(ConfigurationManager.ConnectionStrings["pickdb"].ConnectionString);
+                SqlCommand cmd = new SqlCommand();
+                SqlDataReader reader;
+
+                cmd.CommandText = "SELECT * FROM student where studentid ='" + sid + "'";
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = sqlConnection1;
+
+                sqlConnection1.Open();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        volunteer = reader.GetString(10);
+                        volunteer = volunteer.TrimEnd();
+                        break;
+                    }
+                    reader.Close();
+                    sqlConnection1.Close();
+                    if (!volunteer.Equals(vid))
+                   {
+                       result = -1;
+                   }
+                 else {
+                        cmd.CommandText = " UPDATE student SET Volunteerid = '0' WHERE studentid = " + sid;
+
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = sqlConnection1;
+                        sqlConnection1.Open();
+                        cmd.ExecuteNonQuery();
+                        sqlConnection1.Close();
+
+                        cmd.CommandText = " UPDATE Volunteer SET noOfStudents = noOfStudents - 1 WHERE studentid = " + vid;
+
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = sqlConnection1;
+                        sqlConnection1.Open();
+                        result = cmd.ExecuteNonQuery();
+                        sqlConnection1.Close();
+                    
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                
+
+            }
+            catch (Exception e)
+            {
+                e.GetBaseException();
+
+            }
+            return result;
+            
+        }
+
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "assignVolunteer/{usrn}")]
         public int assignVolunteer(string usrn)
         {
@@ -322,26 +520,31 @@ namespace PickMeUpService
                 SqlDataReader reader;
 
 
-                cmd.CommandText = "SELECT firstname,lastname,email,airlines,flight,Volunteerid FROM student where studentid ='" + usrn + "' ";//and password ='" + pwd + "' ";
+                cmd.CommandText = "SELECT firstname,lastname,email,gender,arrivaltime,airlines,flight,address1,Volunteerid FROM student where studentid ='" + usrn + "' ";//and password ='" + pwd + "' ";
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = sqlConnection1;
 
                 sqlConnection1.Open();
 
-                studentDetails = new String[6];
+                studentDetails = new String[9];
                 reader = cmd.ExecuteReader();
 
                 // Data is accessible through the DataReader object here.
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-
-                    studentDetails[0] = reader[0].ToString();
-                    studentDetails[1] = reader[1].ToString();
-                    studentDetails[2] = reader[2].ToString();
-                    studentDetails[3] = reader[3].ToString();
-                    studentDetails[4] = reader[4].ToString();
-                    studentDetails[5] = reader[5].ToString();
-
+                    while (reader.Read())
+                    {
+                        studentDetails[0] = reader[0].ToString();
+                        studentDetails[1] = reader[1].ToString();
+                        studentDetails[2] = reader[2].ToString();
+                        studentDetails[3] = reader[3].ToString();
+                        studentDetails[4] = reader[4].ToString();
+                        studentDetails[5] = reader[5].ToString();
+                        studentDetails[6] = reader[6].ToString();
+                        studentDetails[7] = reader[7].ToString();
+                        studentDetails[8] = reader[8].ToString();
+                        break;
+                    }
                 }
                 reader.Close();
                 sqlConnection1.Close();

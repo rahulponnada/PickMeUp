@@ -1,0 +1,847 @@
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.umkc.pickmeup.VolunteerRegActivity"
+    android:id="@+id/regRelLayout">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="StudentID: "
+        android:id="@+id/volStudentIDLabel"
+        android:layout_alignBottom="@+id/volStudentIDField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/volStudentIDField"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/volPasswordField"
+        android:layout_alignStart="@+id/volPasswordField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Password: "
+        android:id="@+id/volPasswordLabel"
+        android:layout_alignBottom="@+id/volPasswordField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/volPasswordField"
+        android:layout_below="@+id/volStudentIDField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/volFirstNameLabel"
+        android:layout_toEndOf="@+id/volFirstNameLabel" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="First Name: "
+        android:id="@+id/volFirstNameLabel"
+        android:layout_alignBottom="@+id/volFirstNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volFirstNameField"
+        android:layout_below="@+id/volPasswordField"
+        android:layout_toRightOf="@+id/volFirstNameLabel"
+        android:layout_alignRight="@+id/volPasswordField"
+        android:layout_alignEnd="@+id/volPasswordField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Last Name: "
+        android:id="@+id/volLastNameLabel"
+        android:layout_alignBottom="@+id/volLastNameField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/volLastNameField"
+        android:layout_below="@+id/volFirstNameLabel"
+        android:layout_toRightOf="@+id/volLastNameLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Email ID: "
+        android:id="@+id/volEmailIDLabel"
+        android:layout_alignBottom="@+id/volEmailIDField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/volEmailIDField"
+        android:layout_below="@+id/volLastNameLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/volLastNameField"
+        android:layout_alignStart="@+id/volLastNameField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Gender: "
+        android:id="@+id/volGenderLabel"
+        android:layout_below="@+id/volEmailIDLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+    <RadioGroup
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignBottom="@+id/volGenderLabel"
+        android:layout_toEndOf="@+id/volLastNameLabel"
+        android:layout_alignTop="@+id/volGenderLabel"
+        android:layout_toRightOf="@+id/volLastNameLabel"
+        android:orientation="horizontal"
+        android:id="@+id/volRadioGroup">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:id="@+id/volMaleRadioButton"
+            android:checked="true" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:id="@+id/volFemaleRadioButton"
+            android:layout_gravity="right"
+            android:checked="false"
+            android:layout_marginLeft="20dp" />
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Phone No:"
+        android:id="@+id/volPhoneNoLabel"
+        android:layout_alignBottom="@+id/volPhoneNumberField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/volPhoneNumberField"
+        android:layout_below="@+id/volRadioGroup"
+        android:layout_alignLeft="@+id/volRadioGroup"
+        android:layout_alignStart="@+id/volRadioGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Address: "
+        android:id="@+id/volAddressLabel"
+        android:layout_alignBottom="@+id/VolAddressField"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/VolAddressField"
+        android:layout_below="@+id/volPhoneNumberField"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/volPhoneNumberField"
+        android:layout_alignStart="@+id/volPhoneNumberField" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Available Days:"
+        android:id="@+id/volAvailableDaysLabel"
+        android:layout_below="@+id/volAddressLabel"
+        android:layout_toRightOf="@+id/volAddressLabel"
+        android:layout_toEndOf="@+id/volAddressLabel"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp" />
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/volAvailableDaysTable"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/volAvailableDaysLabel">
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text=""
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+
+            <TextView
+                android:id="@+id/monday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Mon"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+
+            <TextView
+                android:id="@+id/tuesday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Tue"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <TextView
+                android:id="@+id/wednesday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Wed"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <TextView
+                android:id="@+id/Thrusday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Thu"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <TextView
+                android:id="@+id/Friday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fri"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <TextView
+                android:id="@+id/Saturday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sat"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <TextView
+                android:id="@+id/Sunday"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sun"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="0-3 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check1"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+           <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check9"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+           <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check17"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+           <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check25"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+           <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check33"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+           <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check41"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+           <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check49"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot2"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="3-6 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check2"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check10"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check18"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check26"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check34"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check42"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check50"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot3"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="6-9 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check3"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check11"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check19"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check27"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check35"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check43"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check51"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot4"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="9-12 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check4"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check12"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check20"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check28"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check36"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check44"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check52"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot5"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="12-15 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check5"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check13"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check21"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check29"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check37"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check45"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check53"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot6"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="15-18 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check6"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check14"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check22"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check30"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check38"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check46"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check54"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot7"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="18-21 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check7"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check15"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check23"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check31"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check39"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check47"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check55"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        <TableRow
+            android:paddingTop="10px"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/slot8"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:text="21-24 hrs"
+                android:textColor="#804000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check8"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check16"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check24"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check32"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check40"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check48"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/check56"
+                android:checked="false"
+                android:onClick="onCheckboxClicked"
+                android:padding="3dip"/>
+
+        </TableRow>
+        </TableLayout>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/volRegisterButton"
+        android:layout_below="@+id/volAvailableDaysTable"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+
+</RelativeLayout>
+</ScrollView>

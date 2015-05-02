@@ -41,6 +41,15 @@ namespace PickMeUpService
 
         [OperationContract]
         AuthService.Status loginAdmin(string usrn, string pwd);
+
+        [OperationContract]
+        String notifyAll(string Msg);
+
+        [OperationContract]
+        int unAssignVolunteer(string sid, string vid);
+
+        [OperationContract]
+        int updateStudentDetails(string sid, string fname, string lname, string eid, string sex, string atime, string airline, string flight, string address1);
     }
 
 

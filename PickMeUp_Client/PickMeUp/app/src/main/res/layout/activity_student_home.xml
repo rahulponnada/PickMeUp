@@ -1,0 +1,216 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.umkc.pickmeup.StudentHomeActivity">
+
+    <TextView android:text="@string/student_home" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcome"
+        android:textSize="20dp"
+        android:textColor="#804000" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:layout_alignTop="@+id/welcome"
+        android:layout_toRightOf="@+id/welcome"
+        android:layout_toEndOf="@+id/welcome"
+        android:paddingLeft="10dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name: "
+        android:id="@+id/fNameLabel"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="#ffc0c040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/fName"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/fNameLabel"
+        android:layout_toEndOf="@+id/fNameLabel"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name: "
+        android:id="@+id/lNameLabel"
+        android:layout_below="@+id/fNameLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20dp"
+        android:textColor="#C0C040" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/lName"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/lNameLabel"
+        android:layout_toRightOf="@+id/lNameLabel"
+        android:layout_toEndOf="@+id/lNameLabel"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email: "
+        android:id="@+id/emailLabel"
+        android:layout_below="@+id/lNameLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#C0C040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/email"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/emailLabel"
+        android:layout_toRightOf="@+id/emailLabel"
+        android:layout_toEndOf="@+id/emailLabel"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Airlines: "
+        android:id="@+id/airlinesLabel"
+        android:layout_below="@+id/emailLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#C0C040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/airlines"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/airlinesLabel"
+        android:layout_toRightOf="@+id/airlinesLabel"
+        android:layout_toEndOf="@+id/airlinesLabel"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flight No: "
+        android:id="@+id/flightLabel"
+        android:layout_below="@+id/airlinesLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#C0C040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/flight"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/flightLabel"
+        android:layout_toRightOf="@+id/flightLabel"
+        android:layout_toEndOf="@+id/flightLabel"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Flight Status: "
+        android:id="@+id/flightStatusLabel"
+        android:layout_below="@+id/flightLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#C0C040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/flightStatusValue"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/flightStatusLabel"
+        android:layout_toRightOf="@+id/flightStatusLabel"
+        android:layout_toEndOf="@+id/flightStatusLabel"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volunteer ID: "
+        android:id="@+id/volunteerLabel"
+        android:layout_below="@+id/flightStatusLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#C0C040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/volunteer"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/volunteerLabel"
+        android:layout_toRightOf="@+id/volunteerLabel"
+        android:layout_toEndOf="@+id/volunteerLabel"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Weather: "
+        android:id="@+id/weatherLabel"
+        android:layout_below="@+id/volunteerLabel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textColor="#C0C040"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/hello_world"
+        android:id="@+id/weather"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/weatherLabel"
+        android:layout_toRightOf="@+id/weatherLabel"
+        android:layout_toEndOf="@+id/weatherLabel"
+        android:textSize="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Info"
+        android:id="@+id/updateStdButton"
+        android:layout_marginTop="57dp"
+        android:layout_below="@+id/weatherLabel"
+        android:layout_alignRight="@+id/volunteer"
+        android:layout_alignEnd="@+id/volunteer" />
+
+</RelativeLayout>
