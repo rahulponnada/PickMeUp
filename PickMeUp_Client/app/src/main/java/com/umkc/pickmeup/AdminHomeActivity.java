@@ -1,5 +1,6 @@
 package com.umkc.pickmeup;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -8,11 +9,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -31,6 +36,55 @@ public class AdminHomeActivity extends ActionBarActivity {
     int count = 0;
     TableLayout tl;
 
+    private class UnAssignService extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            StringBuilder response = new StringBuilder();
+            for (String url : urls) {
+
+                DefaultHttpClient client = new DefaultHttpClient();
+                HttpGet httpGet = new HttpGet(url);
+                try {
+                    HttpResponse execute = client.execute(httpGet);
+                    InputStream content = execute.getEntity().getContent();
+
+                    BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
+                    String s = "";
+                    while ((s = buffer.readLine()) != null) {
+                        response.append(s);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println(response.toString());
+            return response.toString();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            //super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            try {
+                Toast.makeText(getBaseContext(), "Unassigned", Toast.LENGTH_SHORT).show();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }catch (Exception e) {
+                System.out.println(e.getStackTrace());
+            }
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            //super.onProgressUpdate(values);
+        }
+    }
 
     private class AdminHomeService extends AsyncTask<String,Void,String> {
 
@@ -141,6 +195,8 @@ public class AdminHomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
+
+
         tl = (TableLayout) findViewById(R.id.main_table);
         tl.setBackgroundColor(Color.BLACK);
 
@@ -149,6 +205,70 @@ public class AdminHomeActivity extends ActionBarActivity {
 
         //View v2 = new View(this);
         //v2.setLayoutParams(new TableRow.LayoutParams(1, TableRow.LayoutParams.MATCH_PARENT));
+
+
+        TableRow tr_welcome = new TableRow(this);
+        tr_welcome.setId(0);
+        tr_welcome.setLayoutParams(new LayoutParams(
+                LayoutParams.FILL_PARENT,
+                LayoutParams.WRAP_CONTENT));
+
+        TextView welcome = new TextView(this);
+        //welcome.setId(1);
+        LayoutParams param = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        param.span = 3;
+        welcome.setLayoutParams(param);
+        welcome.setText("Welcome to Admin Home page");
+        welcome.setTextColor(Color.parseColor("#804000"));
+        welcome.setPadding(5, 5, 5, 5);
+        tr_welcome.addView(welcome);// add the column to the table row here
+        tl.addView(tr_welcome, new TableLayout.LayoutParams(
+                LayoutParams.FILL_PARENT,
+                LayoutParams.WRAP_CONTENT));
+
+        TableRow tr_empty = new TableRow(this);
+        tl.addView(tr_empty, new TableLayout.LayoutParams(
+                LayoutParams.FILL_PARENT,
+                LayoutParams.WRAP_CONTENT));
+
+        TableRow tr_empty1 = new TableRow(this);
+        tl.addView(tr_empty1, new TableLayout.LayoutParams(
+                LayoutParams.FILL_PARENT,
+                LayoutParams.WRAP_CONTENT));
+
+
+        TableRow tr_notify = new TableRow(this);
+        //tr_.setId(0);
+        tr_notify.setLayoutParams(new LayoutParams(
+                LayoutParams.FILL_PARENT,
+                LayoutParams.WRAP_CONTENT));
+
+
+        Button notify = new Button(this);
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        params.span = 2;
+
+        notify.setLayoutParams(params);
+        notify.setText("Make Announcement");
+        notify.setTextSize(12);
+        //unassign.setWidth(120);
+        //unassign.setHeight(50);
+        //unassign.setLayoutParams(new LinearLayout.LayoutParams(100, 50));
+        notify.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+                //Toast.makeText(getBaseContext(), "Sending Notification", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AdminHomeActivity.this, NotificationActivity.class);
+                startActivity(intent);
+            }});
+
+        tr_notify.addView(notify);
+
+        tl.addView(tr_notify, new TableLayout.LayoutParams(
+                LayoutParams.FILL_PARENT,
+                LayoutParams.WRAP_CONTENT));
+
+
 
         TableRow tr_head = new TableRow(this);
         int i=10;
@@ -223,7 +343,7 @@ public class AdminHomeActivity extends ActionBarActivity {
 
         //Create two columns to add as table data
         // Create a TextView to add date
-        TextView volIDText = new TextView(this);
+        final TextView volIDText = new TextView(this);
         volIDText.setId(200+count);
         volIDText.setText(volID);
         volIDText.setPadding(2, 0, 5, 0);
@@ -237,7 +357,7 @@ public class AdminHomeActivity extends ActionBarActivity {
         if(volName!=null||!volName.isEmpty()) volNameText.setTextColor(Color.parseColor("#C0C040"));
         tr.addView(volNameText);
 
-        TextView stdIDText = new TextView(this);
+        final TextView stdIDText = new TextView(this);
         stdIDText.setId(400+count);
         stdIDText.setText(stdID);
         stdIDText.setPadding(2, 0, 5, 0);
@@ -257,6 +377,25 @@ public class AdminHomeActivity extends ActionBarActivity {
         stdDateText.setPadding(2, 0, 5, 0);
         //if(stdDate!=null||!stdDate.isEmpty()) stdDateText.setTextColor(Color.parseColor("#C0C040"));
         tr.addView(stdDateText);
+
+        Button unassign = new Button(this);
+        unassign.setText("Unassign");
+        unassign.setTextSize(12);
+        //unassign.setWidth(120);
+        //unassign.setHeight(50);
+        //unassign.setLayoutParams(new LinearLayout.LayoutParams(100, 50));
+        unassign.setOnClickListener(new Button.OnClickListener() {
+
+            public void onClick(View v) {
+
+                UnAssignService unassign = new UnAssignService();
+                unassign.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/unassignvolunteer/"+stdIDText.getText().toString().replaceAll(" ","")+"/"+volIDText.getText().toString().replaceAll(" ","")+""});
+
+
+
+            }});
+
+        tr.addView(unassign);
 
         // finally add this to the table row
         tl.addView(tr, new TableLayout.LayoutParams(

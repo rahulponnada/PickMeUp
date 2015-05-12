@@ -84,9 +84,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Arrival Date: "
+            android:id="@+id/dateLabel"
+            android:layout_below="@+id/lNameLabel"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:textColor="#ffc0c040" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:text="04/13/2015 6:10:31 AM"
+            android:id="@+id/dateValue"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignTop="@+id/dateLabel"
+            android:layout_toRightOf="@+id/dateLabel"
+            android:layout_toEndOf="@+id/dateLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Address: "
             android:id="@+id/addressLabel"
-            android:layout_below="@+id/lNameLabel"
+            android:layout_below="@+id/dateValue"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:textColor="#ffc0c040" />

@@ -18,80 +18,58 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="StudentID: "
-        android:id="@+id/volStudentIDLabel"
+        android:id="@+id/volStudentIDUpdateLabel"
         android:layout_alignBottom="@+id/volStudentIDField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/volStudentIDField"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/volPasswordField"
-        android:layout_alignStart="@+id/volPasswordField" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Password: "
-        android:id="@+id/volPasswordLabel"
-        android:layout_alignBottom="@+id/volPasswordField"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/volPasswordField"
-        android:layout_below="@+id/volStudentIDField"
+        android:id="@+id/volStudentIDUpdateField"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/volFirstNameLabel"
-        android:layout_toEndOf="@+id/volFirstNameLabel" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/volFirstNameUpdateLabel"
+        android:layout_toEndOf="@+id/volFirstNameUpdateLabel"
+        android:layout_alignBottom="@+id/volStudentIDUpdateLabel" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="First Name: "
-        android:id="@+id/volFirstNameLabel"
-        android:layout_alignBottom="@+id/volFirstNameField"
+        android:id="@+id/volFirstNameUpdateLabel"
+        android:layout_alignBottom="@+id/volFirstNameUpdateField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/volFirstNameField"
-        android:layout_below="@+id/volPasswordField"
-        android:layout_toRightOf="@+id/volFirstNameLabel"
-        android:layout_alignRight="@+id/volPasswordField"
-        android:layout_alignEnd="@+id/volPasswordField" />
+        android:id="@+id/volFirstNameUpdateField"
+        android:layout_below="@+id/volStudentIDUpdateField"
+        android:layout_toRightOf="@+id/volFirstNameUpdateLabel"
+        android:layout_alignRight="@+id/volStudentIDUpdateField"
+        android:layout_alignEnd="@+id/volStudentIDUpdateField" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Last Name: "
-        android:id="@+id/volLastNameLabel"
-        android:layout_alignBottom="@+id/volLastNameField"
+        android:id="@+id/volLastNameUpdateLabel"
+        android:layout_alignBottom="@+id/volLastNameUpdateField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/volLastNameField"
-        android:layout_below="@+id/volFirstNameLabel"
-        android:layout_toRightOf="@+id/volLastNameLabel"
+        android:id="@+id/volLastNameUpdateField"
+        android:layout_below="@+id/volFirstNameUpdateLabel"
+        android:layout_toRightOf="@+id/volLastNameUpdateLabel"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -100,8 +78,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Email ID: "
-        android:id="@+id/volEmailIDLabel"
-        android:layout_alignBottom="@+id/volEmailIDField"
+        android:id="@+id/volEmailIDUpdateLabel"
+        android:layout_alignBottom="@+id/volEmailIDUpdateField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -110,20 +88,20 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/volEmailIDField"
-        android:layout_below="@+id/volLastNameLabel"
+        android:id="@+id/volEmailIDUpdateField"
+        android:layout_below="@+id/volLastNameUpdateLabel"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/volLastNameField"
-        android:layout_alignStart="@+id/volLastNameField" />
+        android:layout_alignLeft="@+id/volLastNameUpdateField"
+        android:layout_alignStart="@+id/volLastNameUpdateField" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Gender: "
-        android:id="@+id/volGenderLabel"
-        android:layout_below="@+id/volEmailIDLabel"
+        android:id="@+id/volGenderUpdateLabel"
+        android:layout_below="@+id/volEmailIDUpdateLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp" />
@@ -131,25 +109,25 @@
     <RadioGroup
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignBottom="@+id/volGenderLabel"
-        android:layout_toEndOf="@+id/volLastNameLabel"
-        android:layout_alignTop="@+id/volGenderLabel"
-        android:layout_toRightOf="@+id/volLastNameLabel"
+        android:layout_alignBottom="@+id/volGenderUpdateLabel"
+        android:layout_toEndOf="@+id/volLastNameUpdateLabel"
+        android:layout_alignTop="@+id/volGenderUpdateLabel"
+        android:layout_toRightOf="@+id/volLastNameUpdateLabel"
         android:orientation="horizontal"
-        android:id="@+id/volRadioGroup">
+        android:id="@+id/volRadioGroupUpdate">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            android:id="@+id/volMaleRadioButton"
+            android:id="@+id/volMaleRadioUpdateButton"
             android:checked="true" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"
-            android:id="@+id/volFemaleRadioButton"
+            android:id="@+id/volFemaleRadioUpdateButton"
             android:layout_gravity="right"
             android:checked="false"
             android:layout_marginLeft="20dp" />
@@ -160,8 +138,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Phone No:"
-        android:id="@+id/volPhoneNoLabel"
-        android:layout_alignBottom="@+id/volPhoneNumberField"
+        android:id="@+id/volPhoneNoUpdateLabel"
+        android:layout_alignBottom="@+id/volPhoneNumberUpdateField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -170,10 +148,10 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/volPhoneNumberField"
-        android:layout_below="@+id/volRadioGroup"
-        android:layout_alignLeft="@+id/volRadioGroup"
-        android:layout_alignStart="@+id/volRadioGroup"
+        android:id="@+id/volPhoneNumberUpdateField"
+        android:layout_below="@+id/volRadioGroupUpdate"
+        android:layout_alignLeft="@+id/volRadioGroupUpdate"
+        android:layout_alignStart="@+id/volRadioGroupUpdate"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -182,30 +160,30 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Address: "
-        android:id="@+id/volAddressLabel"
-        android:layout_alignBottom="@+id/VolAddressField"
+        android:id="@+id/volAddressUpdateLabel"
+        android:layout_alignBottom="@+id/VolAddressUpdateField"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/VolAddressField"
-        android:layout_below="@+id/volPhoneNumberField"
+        android:id="@+id/VolAddressUpdateField"
+        android:layout_below="@+id/volPhoneNumberUpdateField"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignLeft="@+id/volPhoneNumberField"
-        android:layout_alignStart="@+id/volPhoneNumberField" />
+        android:layout_alignLeft="@+id/volPhoneNumberUpdateField"
+        android:layout_alignStart="@+id/volPhoneNumberUpdateField" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Available Days:"
-        android:id="@+id/volAvailableDaysLabel"
-        android:layout_below="@+id/volAddressLabel"
-        android:layout_toRightOf="@+id/volAddressLabel"
-        android:layout_toEndOf="@+id/volAddressLabel"
+        android:id="@+id/volAvailableDaysUpdateLabel"
+        android:layout_below="@+id/volAddressUpdateLabel"
+        android:layout_toRightOf="@+id/volAddressUpdateLabel"
+        android:layout_toEndOf="@+id/volAddressUpdateLabel"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp" />
 
@@ -215,7 +193,7 @@
         android:id="@+id/volAvailableDaysTable"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/volAvailableDaysLabel">
+        android:layout_below="@+id/volAvailableDaysUpdateLabel">
         <TableRow
             android:paddingTop="10px"
             android:gravity="center">
@@ -836,8 +814,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/volRegisterButton"
+        android:text="Update"
+        android:id="@+id/volUpdateButton"
         android:layout_below="@+id/volAvailableDaysTable"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp" />

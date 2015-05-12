@@ -18,6 +18,10 @@
             android:label="@string/title_activity_student_reg" >
         </activity>
         <activity
+            android:name=".StudentUpdateActivity"
+            android:label="@string/title_activity_student_update" >
+        </activity>
+        <activity
             android:name=".StudentHomeActivity"
             android:label="@string/title_activity_student_home" >
         </activity>
@@ -39,6 +43,10 @@
             android:label="@string/title_activity_volunteer_reg" >
         </activity>
         <activity
+            android:name=".VolunteerUpdateActivity"
+            android:label="@string/title_activity_volunteer_update" >
+        </activity>
+        <activity
             android:name=".testActivity"
             android:label="@string/title_activity_test" >
         </activity>
@@ -54,7 +62,10 @@
             android:name=".AdminRegActivity"
             android:label="@string/title_activity_admin_reg" >
         </activity>
-
+        <activity
+            android:name=".NotificationActivity"
+            android:label="@string/title_activity_notification" >
+        </activity>
     </application>
 
 </manifest>

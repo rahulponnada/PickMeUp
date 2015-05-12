@@ -66,7 +66,7 @@ public class StudentRegActivity extends ActionBarActivity {
             try {
 
                 if(result.equalsIgnoreCase("1")) {
-                    Toast.makeText(getBaseContext(), "Acoount Succesfully Created - Please login", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Account Successfully Created - Please login", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(StudentRegActivity.this, MainActivity.class);
                     startActivity(intent);
                 }

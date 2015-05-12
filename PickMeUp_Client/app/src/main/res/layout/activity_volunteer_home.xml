@@ -7,16 +7,38 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container">
+        android:id="@+id/container"
+        android:weightSum="1">
+
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:text="Logout"
+            android:textSize="10dp"
+            android:id="@+id/volLogout"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="right"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome to Volunteer Home Page"
             android:id="@+id/textView"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
             android:textColor="#804000"
-            android:textSize="20dp" />
+            android:textSize="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Info"
+            android:id="@+id/VolUpdate"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </ScrollView>

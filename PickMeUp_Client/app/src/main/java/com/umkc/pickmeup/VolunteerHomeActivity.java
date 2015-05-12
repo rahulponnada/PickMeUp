@@ -35,6 +35,94 @@ public class VolunteerHomeActivity extends ActionBarActivity {
 
     ValueAnimator mAnimator;
     LinearLayout container;
+    String message;
+
+    private class VolunteerDetails extends AsyncTask<String,Void,String> {
+
+        @Override
+        protected String doInBackground(String... urls) {
+            StringBuilder response = new StringBuilder();
+            for (String url : urls) {
+
+                DefaultHttpClient client = new DefaultHttpClient();
+                HttpGet httpGet = new HttpGet(url);
+                try {
+                    HttpResponse execute = client.execute(httpGet);
+                    InputStream content = execute.getEntity().getContent();
+
+                    BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
+                    String s = "";
+                    while ((s = buffer.readLine()) != null) {
+                        response.append(s);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.println(response.toString());
+            return response.toString();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            //super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            try {
+                System.out.println("Result-->"+result);
+                String volunteer = result.replaceAll("\"","").replaceAll("\\]","").replaceAll("\\[", "");
+                //JSONObject jsonObject = new JSONObject(result);
+                //JSONArray studentList = new
+                   //     JSONArray(jsonObject.getString("studentList"));
+
+                //---print out the content of the json feed---
+                //for (int i = 0; i < studentList.length(); i++) {
+                  //  JSONObject student =
+                 //           studentList.getJSONObject(i);
+
+                    //add(student.getString("fName"),student.getString("lName"),student.getString("address"));
+                    /*Toast.makeText(getBaseContext(),
+                            student.getString("fName") + " - " +
+                                    student.getString("lName") + ", " +
+                                    student.getString("address"),
+                            Toast.LENGTH_SHORT).show();*/
+                final String[] volunteerArr = volunteer.split(",");
+                        Intent intent = new Intent(VolunteerHomeActivity.this, VolunteerUpdateActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("StudentID", message);
+                        bundle.putString("firstname", volunteerArr[0]);
+                        bundle.putString("lastname", volunteerArr[1]);
+                        bundle.putString("email", volunteerArr[2]);
+                        bundle.putString("gender", volunteerArr[3]);
+                        bundle.putString("phone", volunteerArr[4]);
+                        bundle.putString("address", volunteerArr[5]);
+
+
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+
+            } catch (Exception e) {
+                System.out.println(e.getStackTrace());
+            }
+            /*System.out.println("<---result-->"+result);
+            result = result.replaceAll("\"","");
+            String[] data = result.split(";");
+            String[] record;
+            for (int i=0;i<data.length;i++){
+                record = data[i].split(",");
+
+                add(record[0],record[1],"12/12/12",record[2]);
+            }*/
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            //super.onProgressUpdate(values);
+        }
+    }
 
     private class VolunteerHomeService extends AsyncTask<String,Void,String> {
 
@@ -71,6 +159,7 @@ public class VolunteerHomeActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(String result) {
             try {
+                System.out.println("Result-->"+result);
                 JSONObject jsonObject = new JSONObject(result);
                 JSONArray studentList = new
                         JSONArray(jsonObject.getString("studentList"));
@@ -112,15 +201,39 @@ public class VolunteerHomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
+        Bundle getData = getIntent().getExtras();
+        //message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE2);
+        message = getData.getString("StudentID");
+
         setContentView(R.layout.activity_volunteer_home);
         container = (LinearLayout)findViewById(R.id.container);
 
-        String message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE2);
+        //String message = intent.getStringExtra(LoginActivity.EXTRA_MESSAGE2);
         System.out.println("Volunteeetr UserName--->"+message);
         Button navigate = (Button) findViewById(R.id.navigate);
 
         VolunteerHomeService volService= new VolunteerHomeService();
         volService.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/login/volunteer/"+message});
+
+        Button update = (Button) findViewById(R.id.VolUpdate);
+
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                VolunteerDetails volDetails = new VolunteerDetails();
+                volDetails.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/login/editVolunteer/"+message});
+            }
+        });
+
+        Button logout = (Button)findViewById(R.id.volLogout);
+        logout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(VolunteerHomeActivity.this,MainActivity.class);
+                    startActivity(intent);
+            }
+        });
 
     }
     private void add(String fname,String lname,final String addr){

@@ -63,25 +63,40 @@ public class LoginActivity extends ActionBarActivity {
         @Override
         protected void onPostExecute(String result) {
             try {
-
+                //System.out.println("Inside Execute1");
                 JSONObject jsonObject = new JSONObject(result);
                 Intent intent = getIntent();
                 final String tableName = intent.getStringExtra(MainActivity.EXTRA_MESSAGE1);
-
+                System.out.println("Inside Execute2");
                 //final EditText studentID = (EditText)findViewById(R.id.studentID);
+               // JSONObject airline = jsonObject.getJSONObject("delays");
+               // System.out.println(airline);
 
+                //JSONObject volunteerList = new JSONArray(jsonObject.getString("airline"));
+                //System.out.println("Inside Execute3");
+                //for (int i = 0; i < volunteerList.length(); i++) {
+                    //JSONObject student = volunteerList.getJSONObject(i);
+                  //  System.out.println("Hellwo2");
+                    //System.out.println(airline.getJSONObject("delays").getString("arrivalGateDelayMinutes"));
+                //}
                 if(jsonObject.getString("status").equalsIgnoreCase("true")){
                     Toast.makeText(getBaseContext(),"Login Successfull",Toast.LENGTH_SHORT).show();
                     if(tableName.equalsIgnoreCase("Student"))
                     {
                         Intent intent1= new Intent(LoginActivity.this,StudentHomeActivity.class);
-                        intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
+                        //intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
+                        Bundle bundle = new Bundle();
+                        bundle.putString("StudentID",studentID.getText().toString());
+                        intent1.putExtras(bundle);
                         startActivity(intent1);
 
                     }
                     else if (tableName.equalsIgnoreCase("Volunteer")){
                         Intent intent1 = new Intent(LoginActivity.this, VolunteerHomeActivity.class);
-                        intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
+                        Bundle bundle = new Bundle();
+                        bundle.putString("StudentID",studentID.getText().toString());
+                        intent1.putExtras(bundle);
+                        //intent1.putExtra(EXTRA_MESSAGE2 , studentID.getText().toString());
                         startActivity(intent1);
 
                     }
@@ -122,10 +137,14 @@ public class LoginActivity extends ActionBarActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("TableName-->"+tableName);
-                //Intent intent1 = new Intent(LoginActivity.this, AdminHomeActivity.class);
-                //startActivity(intent1);
+               /* System.out.println("TableName-->"+tableName);
+                Intent intent1 = new Intent(LoginActivity.this, StudentUpdateActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("StudentID", studentID.getText().toString());
+                intent1.putExtras(bundle);
+                startActivity(intent1);*/
                 AuthenticationService authService = new AuthenticationService();
+             //   authService.execute(new String[]{"https://api.flightstats.com/flex/flightstatus/rest/v2/json/flight/status/LH/8523/arr/2015/04/29?appId=50ef2199&appKey=ae5e39694c285c724c72f391d714326a&utc=false"});
                 authService.execute(new String[]{"http://10.0.2.2:52715/AuthService.svc/login/"+tableName+"/"+studentID.getText().toString()+"/"+password.getText().toString()+""});
 
             }
